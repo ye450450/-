@@ -4,4 +4,4 @@
 <img src="https://user-images.githubusercontent.com/104772331/188791383-4fa60120-6800-460b-847f-10a32fef3873.PNG" width="200" height = "250" >  
 
 ## 결과  Screenshot
-- **실행결과의 screenshots으로 잘 실행되고 있는지 확인한다.
+- **실행결과의 screenshots으로 잘 실행되고 있는지 확인한다.**
