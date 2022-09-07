@@ -8,13 +8,13 @@
 ### 설치한 IDE 캡쳐
 <img src = "./sreenshots/실행화면.png">
 
-### 1.모든단어보기
+### 1. 모든단어보기
 <img src = "./sreenshots/단어보기1.PNG">
 <img src = "./sreenshots/단어보기2.PNG">
 
-### 4.단어추가
+### 4. 단어추가
 <img src = "./sreenshots/단어추가1.PNG">
 <img src = "./sreenshots/단어추가2.PNG">
 
-### 0.나가기
+### 0. 나가기
 <img src = "./sreenshots/나가기.PNG">
