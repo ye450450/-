@@ -55,6 +55,18 @@ public class WordCRUD implements ICRUD{
 		}
 		System.out.println("-----------------------------");
 	}
+	public void listAll(int slevel) {
+		int j=0;
+		System.out.println("-----------------------------");
+		for(int i =0;i<list.size();i++) {
+			if(slevel==list.get(i).getLevel()) {
+			System.out.print((j+1) + " ");
+			System.out.println(list.get(i).toString());
+			j++;
+			}
+		}
+		System.out.println("-----------------------------");
+	}
 	public ArrayList<Integer> listAll(String s) {
 		int j=0;
 		ArrayList<Integer> num= new ArrayList<>();
@@ -78,8 +90,8 @@ public class WordCRUD implements ICRUD{
 		String keyword = s.nextLine();//수정할 단어가 포함되어 있는 단어를 입력받음
 		ArrayList<Integer> snum= this.listAll(keyword);
 		System.out.print("=> 수정할 번호 검색 : ");
-		s.nextInt();
-		String nothing = s.nextLine();
+		int num = s.nextInt();
+		s.nextLine();
 		System.out.print("=> 뜻 입력 : ");
 		String meaning = s.nextLine();
 		list.get(snum.get(num-1)).setMeaning(meaning);
@@ -90,13 +102,18 @@ public class WordCRUD implements ICRUD{
 		String keyword = s.nextLine();//수정할 단어가 포함되어 있는 단어를 입력받음
 		ArrayList<Integer> snum= this.listAll(keyword);
 		System.out.print("=> 삭제할 번호 검색 : ");
-		s.nextInt();
-		String nothing = s.nextLine();
+		int num = s.nextInt();
+		s.nextLine();
 		System.out.print("=> 정말로 삭제하실래요?(Y/N) ");
 		String meaning = s.nextLine();
 		if(meaning.equalsIgnoreCase("y"))
 		list.remove((int)snum.get(num-1));
 		System.out.println("단어가 수정되었습니다.");
+	}
+	public void listByLevel() {
+		System.out.print("=>레벨(1:초급,2:중급,3:고급)선택 :");
+		int slevel=s.nextInt();//검색하고자 하는 레벨
+		this.listAll(slevel);
 	}
 	
 }
