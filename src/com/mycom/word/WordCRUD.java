@@ -79,9 +79,10 @@ public class WordCRUD implements ICRUD{
 		ArrayList<Integer> snum= this.listAll(keyword);
 		System.out.print("=> 수정할 번호 검색 : ");
 		int num = s.nextInt();
+		String nothing = s.nextLine();
 		System.out.print("=> 뜻 입력 : ");
 		String meaning = s.nextLine();
-		list.get(snum.get(num)).setMeaning(meaning);
+		list.get(snum.get(num-1)).setMeaning(meaning);
 		System.out.println("단어가 수정되었습니다.");
 	}
 	
