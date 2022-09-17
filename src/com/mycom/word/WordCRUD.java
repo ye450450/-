@@ -1,11 +1,16 @@
 package com.mycom.word;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
+	
 	ArrayList<Word> list;
 	Scanner s;
+	final String fname = "Dictionary.txt";
 	
 	WordCRUD(Scanner s){
 		list = new ArrayList<>();
@@ -115,5 +120,29 @@ public class WordCRUD implements ICRUD{
 		int slevel=s.nextInt();//검색하고자 하는 레벨
 		this.listAll(slevel);
 	}
-	
+	public void searchWord() {
+		System.out.print("검색할 단어 입력 :");
+		String keyword= s.nextLine();//검색할 단어 저장
+		listAll(keyword);
+	}
+	public void loadFile() {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(fname));
+				String line;
+				int count=0;
+				while((line = br.readLine())!=null) {
+					String[] words = line.split("//|");
+					int level = Integer.parseInt(words[0]);
+					String word = words[1];
+					String meaning = words[2];
+					list.add(new Word(0,level,word,meaning));
+					count++;
+				}
+				System.out.println("=> "+count+"개 단어 로딩 완료!");
+				br.close();
+			}  catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 }

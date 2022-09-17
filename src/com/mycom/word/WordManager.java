@@ -27,6 +27,7 @@ public class WordManager {
 		return s.nextInt();
 	}
 	public void start() {
+		wordCRUD.loadFile();
 		while(true) {
 		int menu = selectMenu();
 		if(menu==0) {
@@ -35,6 +36,9 @@ public class WordManager {
 		}
 		else if(menu==2) {
 			wordCRUD.listByLevel();
+		}
+		else if(menu==3) {
+			wordCRUD.searchWord();
 		}
 		else if(menu==4) {
 			wordCRUD.addWord();
