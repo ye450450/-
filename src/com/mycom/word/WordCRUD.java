@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -95,7 +94,7 @@ public class WordCRUD implements ICRUD{
 	
 	public void updateItem() {
 		System.out.print("=> 수정할 단어 검색 : ");
-		String keyword = s.nextLine();//수정할 단어가 포함되어 있는 단어를 입력받음
+		String keyword = s.next();//수정할 단어가 포함되어 있는 단어를 입력받음
 		ArrayList<Integer> snum= this.listAll(keyword);
 		System.out.print("=> 수정할 번호 검색 : ");
 		int num = s.nextInt();
@@ -107,7 +106,7 @@ public class WordCRUD implements ICRUD{
 	}
 	public void deleteItem() {
 		System.out.print("=> 삭제할 단어 검색 : ");
-		String keyword = s.nextLine();//수정할 단어가 포함되어 있는 단어를 입력받음
+		String keyword = s.next();//수정할 단어가 포함되어 있는 단어를 입력받음
 		ArrayList<Integer> snum= this.listAll(keyword);
 		System.out.print("=> 삭제할 번호 검색 : ");
 		int num = s.nextInt();
@@ -116,7 +115,7 @@ public class WordCRUD implements ICRUD{
 		String meaning = s.nextLine();
 		if(meaning.equalsIgnoreCase("y"))
 		list.remove((int)snum.get(num-1));
-		System.out.println("단어가 수정되었습니다.");
+		System.out.println("\n단어가 삭제되었습니다.");
 	}
 	public void listByLevel() {
 		System.out.print("=>레벨(1:초급,2:중급,3:고급)선택 :");
@@ -125,7 +124,7 @@ public class WordCRUD implements ICRUD{
 	}
 	public void searchWord() {
 		System.out.print("검색할 단어 입력 :");
-		String keyword= s.nextLine();//검색할 단어 저장
+		String keyword= s.next();//검색할 단어 저장
 		listAll(keyword);
 	}
 	public void loadFile() {
@@ -150,11 +149,12 @@ public class WordCRUD implements ICRUD{
 	}
 	public void saveFile() {
 		try {
-			PrintWriter pr = new PrintWriter(new FileWriter("fname"));
+			PrintWriter pr = new PrintWriter(new FileWriter(fname));
 			for(Word one : list) {
 				pr.write(one.toStringFile()+"\n");
 			}
 			pr.close();
+			System.out.println("모든 단어 저장 완료!!");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
