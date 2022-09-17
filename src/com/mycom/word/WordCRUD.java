@@ -131,7 +131,7 @@ public class WordCRUD implements ICRUD{
 				String line;
 				int count=0;
 				while((line = br.readLine())!=null) {
-					String[] words = line.split("//|");
+					String[] words = line.split("\\|");
 					int level = Integer.parseInt(words[0]);
 					String word = words[1];
 					String meaning = words[2];
