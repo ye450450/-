@@ -2,7 +2,10 @@ package com.mycom.word;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -144,5 +147,19 @@ public class WordCRUD implements ICRUD{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	}
+	public void saveFile() {
+		try {
+			PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
+			for(int i=0;i<list.size();i++) {
+				String line= list.get(i).toStringFile();
+				pr.write(line+"\n");
+			}
+			pr.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

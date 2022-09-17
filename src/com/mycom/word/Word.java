@@ -47,5 +47,10 @@ public class Word {
 		
 		return str;
 	}
+	public String toStringFile() {
+		
+		return Integer.toString(level)+"|"+word+"|"+meaning;
+		
+	}
 	
 }
