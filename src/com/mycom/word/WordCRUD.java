@@ -150,10 +150,9 @@ public class WordCRUD implements ICRUD{
 	}
 	public void saveFile() {
 		try {
-			PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
-			for(int i=0;i<list.size();i++) {
-				String line= list.get(i).toStringFile();
-				pr.write(line+"\n");
+			PrintWriter pr = new PrintWriter(new FileWriter("fname"));
+			for(Word one : list) {
+				pr.write(one.toStringFile()+"\n");
 			}
 			pr.close();
 		} catch (IOException e) {
